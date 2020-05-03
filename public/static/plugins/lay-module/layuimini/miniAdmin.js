@@ -283,7 +283,7 @@ layui.define(["jquery", "miniMenu", "miniTab", "miniTheme"], function (exports) 
                     lang = 'en-us';
                 }
                 $.get(url,{lang:lang}, function (res) {
-                    if (res.code > 0) {
+                    if (res.code <= 0) {
                         miniAdmin.error(res.msg);
                     } else {
                         layer.msg(res.msg, function () {

@@ -51,11 +51,18 @@ return [
 //    'dispatch_error_tmpl'   => app()->getThinkPath() . 'tpl/dispatch_jump.tpl',
 
     // 默认跳转页面对应的模板文件
-    'dispatch_success_tmpl' => \think\facade\App::getAppPath(). '../view/template/dispatch_jump.tpl',
-    'dispatch_error_tmpl'   => \think\facade\App::getAppPath(). '../view/template/dispatch_jump.tpl',
+    'dispatch_success_tmpl' => \think\facade\App::getAppPath(). '../public/dispatch/dispatch_jump.tpl',
+    'dispatch_error_tmpl'   => \think\facade\App::getAppPath(). '../public/dispatch/dispatch_jump.tpl',
 
     // 错误显示信息,非调试模式有效
     'error_message'    => '您访问的内容不存在',
     // 显示错误信息
     'show_error_msg'   => true,
+
+    //产品名称
+    "lemocms_name" => "LemoCm后台管理系统",
+    //产品更新日期
+    "lemocms_release" => 20200503,
+    //产品版本号
+    "lemocms_version" => "2.0.0",
 ];

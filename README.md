@@ -74,7 +74,6 @@ lemocms 方便二次开发，您可以方便的使用到自己或企业的项目
 QQ群：[455019756](https://jq.qq.com/?_wv=1027&k=52oRd8O)
 
 Github：https://github.com/yue909/lemocms/issues
-Gitee : https://gitee.com/limingyue0312/lemocms/issues
 
 
 

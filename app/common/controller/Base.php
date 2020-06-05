@@ -28,13 +28,13 @@ class Base extends BaseController
         $lang = input('lang');
         switch ($lang) {
             case 'zh-cn':
-                Cookie::set('cookie_var', 'zh-cn');
+                Cookie::set('think_lang', 'zh-cn');
                 break;
             case 'en-us':
-                Cookie::set('cookie_var', 'en-us');
+                Cookie::set('think_lang', 'en-us');
                 break;
             default:
-                Cookie::set('cookie_var', 'zh-cn');
+                Cookie::set('think_lang', 'zh-cn');
                 break;
         }
         $this->success(lang('change language success'));

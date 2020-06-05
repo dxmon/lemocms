@@ -71,7 +71,8 @@ class Index extends Backend{
      * 主页面
      */
     public function main(){
-        $version = Db::query('SELECT VERSION() AS ver');
+//        $version = Db::query('SELECT VERSION() AS ver');
+//        $version = [0=>1];
         $config = Cache::get('main_config');
         if(!$config){
             $config  = [
@@ -84,7 +85,7 @@ class Index extends Backend{
                 'server_soft'     => $_SERVER['SERVER_SOFTWARE'],
                 'server_file'     => $_SERVER['SCRIPT_FILENAME'],
                 'php_version'     => PHP_VERSION,
-                'mysql_version'   => $version[0]['ver'],
+//                'mysql_version'   => $version[0]['ver'],
                 'max_upload_size' => ini_get('upload_max_filesize'),
             ];
             Cache::set('main_config',$config,3600);

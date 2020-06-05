@@ -1,0 +1,14 @@
+[2020-06-05T09:49:38+08:00][sql] CONNECT:[ UseTime:0.001170s ] mysql:host=127.0.0.1;port=3306;dbname=lemocms_111;charset=utf8mb4
+[2020-06-05T09:49:38+08:00][sql] SHOW FULL COLUMNS FROM `lm_auth_rule` [ RunTime:0.000875s ]
+[2020-06-05T09:49:38+08:00][sql] SELECT `href`,`href` FROM `lm_auth_rule` [ RunTime:0.000380s ]
+[2020-06-05T09:49:38+08:00][sql] CONNECT:[ UseTime:0.001139s ] mysql:host=127.0.0.1;port=3306;dbname=lemocms_111;charset=utf8mb4
+[2020-06-05T09:49:38+08:00][sql] SHOW FULL COLUMNS FROM `lm_auth_rule` [ RunTime:0.001035s ]
+[2020-06-05T09:49:38+08:00][sql] SELECT `href`,`href` FROM `lm_auth_rule` [ RunTime:0.000321s ]
+[2020-06-05T09:49:38+08:00][sql] SHOW FULL COLUMNS FROM `lm_config` [ RunTime:0.000701s ]
+[2020-06-05T09:49:38+08:00][sql] SELECT `value` FROM `lm_config` WHERE  `code` = 'site_name' LIMIT 1 [ RunTime:0.000247s ]
+[2020-06-05T09:49:38+08:00][sql] SELECT `value` FROM `lm_config` WHERE  `code` = 'site_version' LIMIT 1 [ RunTime:0.000180s ]
+[2020-06-05T09:49:40+08:00][sql] CONNECT:[ UseTime:0.001159s ] mysql:host=127.0.0.1;port=3306;dbname=lemocms_111;charset=utf8mb4
+[2020-06-05T09:49:40+08:00][sql] SHOW FULL COLUMNS FROM `lm_auth_rule` [ RunTime:0.000802s ]
+[2020-06-05T09:49:40+08:00][sql] SELECT `href`,`href` FROM `lm_auth_rule` [ RunTime:0.000298s ]
+[2020-06-05T09:49:40+08:00][sql] SHOW FULL COLUMNS FROM `lm_config` [ RunTime:0.000869s ]
+[2020-06-05T09:49:40+08:00][sql] SELECT `code`,`value` FROM `lm_config` WHERE  `type` IN ('site','email','upload','sms') [ RunTime:0.000435s ]

@@ -3029,12 +3029,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/top-think/think-orm.git",
-            "reference": "df1999ade81f5597813a6063b2ab22f641404e69"
+            "reference": "667896c20244894eadd706a7adc3bdca512f7bc7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/top-think/think-orm/zipball/df1999ade81f5597813a6063b2ab22f641404e69",
-            "reference": "df1999ade81f5597813a6063b2ab22f641404e69",
+            "url": "https://api.github.com/repos/top-think/think-orm/zipball/667896c20244894eadd706a7adc3bdca512f7bc7",
+            "reference": "667896c20244894eadd706a7adc3bdca512f7bc7",
             "shasum": "",
             "mirrors": [
                 {
@@ -3050,7 +3050,7 @@
             "psr/simple-cache": "^1.0",
             "topthink/think-helper": "^3.1"
         },
-        "time": "2020-06-03T10:03:48+00:00",
+        "time": "2020-06-04T07:11:09+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

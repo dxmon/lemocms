@@ -1,3 +1,4 @@
+<?php /*a:1:{s:44:"E:\lemocms1.0\app\admin\view\index\main.html";i:1591321774;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -114,49 +115,49 @@
                                 <div class="welcome-module">
                                     <div class="layui-row layui-col-space10 lemo-qiuck">
                                         <div class="layui-col-xs3 lemo-qiuck-module">
-                                            <a href="javascript:;" lemo-href="{:url('sys.System/index')}" data-title="系统" data-icon="fa fa-window-maximize">
+                                            <a href="javascript:;" lemo-href="<?php echo url('sys.System/index'); ?>" data-title="系统" data-icon="fa fa-window-maximize">
                                                 <i class="fa fa-window-maximize"></i>
                                                 <cite>系统</cite>
                                             </a>
                                         </div>
                                         <div class="layui-col-xs3 lemo-qiuck-module">
-                                            <a href="javascript:;" lemo-href="{:url('ucenter.User/index')}" data-title="会员" data-icon="fa fa-gears">
+                                            <a href="javascript:;" lemo-href="<?php echo url('ucenter.User/index'); ?>" data-title="会员" data-icon="fa fa-gears">
                                                 <i class="fa fa-gears"></i>
                                                 <cite>会员</cite>
                                             </a>
                                         </div>
 <!--                                        <div class="layui-col-xs3 lemo-qiuck-module">-->
-<!--                                            <a href="javascript:;" lemo-href="{:url('article/index')}" data-title="内容" data-icon="fa fa-file-text">-->
+<!--                                            <a href="javascript:;" lemo-href="<?php echo url('article/index'); ?>" data-title="内容" data-icon="fa fa-file-text">-->
 <!--                                                <i class="fa fa-file-text"></i>-->
 <!--                                                <cite>内容</cite>-->
 <!--                                            </a>-->
 <!--                                        </div>-->
 <!--                                        <div class="layui-col-xs3 lemo-qiuck-module">-->
-<!--                                            <a href="javascript:;" lemo-href="{:url('wechat/index')}" data-title="微信" data-icon="fa fa-dot-circle-o">-->
+<!--                                            <a href="javascript:;" lemo-href="<?php echo url('wechat/index'); ?>" data-title="微信" data-icon="fa fa-dot-circle-o">-->
 <!--                                                <i class="fa fa-dot-circle-o"></i>-->
 <!--                                                <cite>微信</cite>-->
 <!--                                            </a>-->
 <!--                                        </div>-->
 <!--                                        <div class="layui-col-xs3 lemo-qiuck-module">-->
-<!--                                            <a href="javascript:;" data-iframe-tab="{:url('system/site')}" data-title="表单示例" data-icon="fa fa-calendar">-->
+<!--                                            <a href="javascript:;" data-iframe-tab="<?php echo url('system/site'); ?>" data-title="表单示例" data-icon="fa fa-calendar">-->
 <!--                                                <i class="fa fa-calendar"></i>-->
 <!--                                                <cite>系统设置</cite>-->
 <!--                                            </a>-->
 <!--                                        </div>-->
 <!--                                        <div class="layui-col-xs3 lemo-qiuck-module">-->
-<!--                                            <a href="javascript:;" data-iframe-tab="{:url('system/site')}" data-title="404页面" data-icon="fa fa-hourglass-end">-->
+<!--                                            <a href="javascript:;" data-iframe-tab="<?php echo url('system/site'); ?>" data-title="404页面" data-icon="fa fa-hourglass-end">-->
 <!--                                                <i class="fa fa-hourglass-end"></i>-->
 <!--                                                <cite>系统设置</cite>-->
 <!--                                            </a>-->
 <!--                                        </div>-->
 <!--                                        <div class="layui-col-xs3 lemo-qiuck-module">-->
-<!--                                            <a href="javascript:;" data-iframe-tab="{:url('system/site')}" data-title="按钮示例" data-icon="fa fa-snowflake-o">-->
+<!--                                            <a href="javascript:;" data-iframe-tab="<?php echo url('system/site'); ?>" data-title="按钮示例" data-icon="fa fa-snowflake-o">-->
 <!--                                                <i class="fa fa-snowflake-o"></i>-->
 <!--                                                <cite>系统设置</cite>-->
 <!--                                            </a>-->
 <!--                                        </div>-->
 <!--                                        <div class="layui-col-xs3 lemo-qiuck-module">-->
-<!--                                            <a href="javascript:;" data-iframe-tab="{:url('system/site')}" data-title="弹出层" data-icon="fa fa-shield">-->
+<!--                                            <a href="javascript:;" data-iframe-tab="<?php echo url('system/site'); ?>" data-title="弹出层" data-icon="fa fa-shield">-->
 <!--                                                <i class="fa fa-shield"></i>-->
 <!--                                                <cite>系统设置</cite>-->
 <!--                                            </a>-->
@@ -248,12 +249,12 @@
                             <tr>
                                 <td>框架名称</td>
                                 <td>
-                                    {:getConfigByCode('site_name')}
+                                    <?php echo getConfigByCode('site_name'); ?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>当前版本</td>
-                                <td>{:getConfigByCode('site_version')}
+                                <td><?php echo getConfigByCode('site_version'); ?>
                                 </td>
                             </tr>
                             <tr>

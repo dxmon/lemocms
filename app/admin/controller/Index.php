@@ -13,6 +13,7 @@
 namespace app\admin\controller;
 use app\admin\model\AuthRule;
 use app\common\controller\Backend;
+use http\Cookie;
 use think\facade\View;
 use think\facade\Db;
 use think\facade\Cache;
@@ -49,12 +50,11 @@ class Index extends Backend{
     }
     public function menus(){
         $admin_id = Session::get('admin.id');
-        $menus = Cache::get('adminMenus_'.$admin_id);
+        $menus = json_decode(cookie('adminMenus_'.$admin_id));
         if(!$menus){
             $cate = AuthRule::where('menu_status',1)->order('sort asc')->select()->toArray();
             $menus = Menu::authMenu($cate);
-            cache('adminMenus_'.$admin_id,$menus,['expire'=>3600]);
-
+            cookie('adminMenus_'.$admin_id,json_encode($menus),['expire'=>3600]);
         }
         $href = (string)url('main');
         $home = ["href"=>$href,"icon"=>"fa fa-home","title"=>"首页"];

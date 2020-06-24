@@ -54,7 +54,7 @@ class Index extends Backend{
         if(!$menus){
             $cate = AuthRule::where('menu_status',1)->order('sort asc')->select()->toArray();
             $menus = Menu::authMenu($cate);
-            cookie('adminMenus_'.$admin_id,json_encode($menus),['expire'=>3600]);
+//            cookie('adminMenus_'.$admin_id,json_encode($menus),['expire'=>3600]);
         }
         $href = (string)url('main');
         $home = ["href"=>$href,"icon"=>"fa fa-home","title"=>"首页"];

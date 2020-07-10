@@ -66,11 +66,8 @@ class Login extends Base {
      */
     public function verify()
     {
-
         return Captcha::create();
     }
-
-
 
     /**
      * 根据用户名密码，验证用户是否能成功登陆
@@ -81,41 +78,36 @@ class Login extends Base {
      */
     public static function checkLogin($user, $password,$rememberMe) {
 
-        try{
+        try {
             $where['username'] = strip_tags(trim($user));
             $password = strip_tags(trim($password));
-            $info = Admin::where($where)->find();
-            if(!$info){
-                throw new \Exception(lang('please check username or password'));
+            $admin = \app\admin\model\Admin::where($where)->find();
+            if (!$admin) {
+                throw new \Exception(lang('Please check username or password'));
             }
-            if($info->status==0){
-                throw new \Exception(lang('account is disabled'));
+            if ($admin['status'] == 0) {
+                throw new \Exception(lang('Account is disabled'));
             }
-            if(!password_verify($password,$info->password)){
-                throw new \Exception(lang('please check username or password'));
-
+            if (!password_verify($password, $admin['password'])) {
+                throw new \Exception(lang('Please check username or password'));
             }
-            if(!$info['group_id']){
-                $info['group_id'] = 1;
-
+            if (!$admin['group_id']) {
+                $admin['group_id'] = 1;
             }
-            $rules = AuthGroup::where('id',$info['group_id'])
+            $admin = $admin->toArray();
+            $rules = AuthGroup::where('id', $admin['group_id'])
                 ->value('rules');
-            $info['rules'] = $rules  ;
-            if(!$info['username']){
-                $info['username'] = $info['username'];
+            $admin['rules'] = $rules;
+            if ($rememberMe) {
+                $admin['expiretime'] = 30*24*3600 +time();
+            }else{
+                $admin['expiretime'] = 7*24*3600 +time();
             }
-            if($rememberMe){
-               cache('rememberMe',1);
-            }
-            Session::set('admin', $info);
-            Session::set('admin_sign',  SignHelper::authSign($info));
-
-
-        }catch (\Exception $e) {
+            unset($admin['password']);
+            Session::set('admin', $admin);
+        } catch (\Exception $e) {
             throw new \Exception($e->getMessage());
         }
-
         return true;
     }
 }

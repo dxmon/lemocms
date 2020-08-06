@@ -119,21 +119,6 @@ if ($_GET['c'] = 'start' && isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUE
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4"
         ));
-        // 连接数据库
-        $link = @new mysqli("{$host}:{$port}", $mysqlUserName, $mysqlPassword);
-        $link->query('set global wait_timeout=2147480');
-        $link->query("set global interactive_timeout=2147480");
-        $link->query("set global max_allowed_packet=104857600");
-        // 获取错误信息
-        $error = $link->connect_error;
-        if (!is_null($error)) {
-        // 转义防止和alert中的引号冲突
-            $error = addslashes($error);
-            die("数据库链接失败:$error");
-        }
-        // 设置字符集
-        $link->query("SET NAMES 'utf8mb4'");
-
         //检测是否支持innodb存储引擎
         $pdoStatement = $pdo->query("SHOW VARIABLES LIKE 'innodb_version'");
         $result = $pdoStatement->fetch();
@@ -141,15 +126,9 @@ if ($_GET['c'] = 'start' && isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUE
             throw new Exception("当前数据库不支持innodb存储引擎，请开启后再重新尝试安装");
         }
         // 创建数据库并选中
-        if (!$link->select_db($mysqlDatabase)) {
-            $create_sql = 'CREATE DATABASE IF NOT EXISTS ' . $mysqlDatabase . ' DEFAULT CHARACTER SET utf8mb4;';
-            $link->query($create_sql) or die('创建数据库失败');
-            $link->select_db($mysqlDatabase);
-        }
+        $pdo->query("CREATE DATABASE IF NOT EXISTS `{$mysqlDatabase}` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;");
         $pdo->query("USE `{$mysqlDatabase}`");
         $pdo->exec($sql);
-    //        //插入数据库
-    //        $link->multi_query($sql);
         $databaseConfig= @file_get_contents($databaseConfigFile);
         //替换数据库相关配置
         $config = <<<EOT
@@ -227,7 +206,7 @@ EOT;
         }
 
         $password = password_hash($adminPassword, PASSWORD_BCRYPT,['cost'=>12]);
-        $result = $link->query("UPDATE {$mysqlPreFix}admin SET `email`='{$email}',`username` = '{$adminUserName}',`password` = '{$password}' WHERE `username` = 'admin'");
+        $result = $pdo->query("UPDATE {$mysqlPreFix}admin SET `email`='{$email}',`username` = '{$adminUserName}',`password` = '{$password}' WHERE `username` = 'admin'");
         if (!$result) {
             die("安装数据库失败！:$error");
         }

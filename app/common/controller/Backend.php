@@ -180,11 +180,11 @@ class Backend extends \app\common\controller\Base
      * 清除缓存 出去session缓存
      */
     public function clearData(){
-        $dir = config('admin.clear_cache_dir') ? app()->getRootPath().'runtime/admin' : app()->getRootPath().'runtime';
+//        $dir = config('admin.clear_cache_dir') ? app()->getRootPath().'runtime/admin' : app()->getRootPath().'runtime';
         Cache::clear();
-        if(FileHelper::delDir($dir) ){
+//        if(FileHelper::delDir($dir) ){
             $this->success('清除成功');
-        }
+//        }
     }
 
 
